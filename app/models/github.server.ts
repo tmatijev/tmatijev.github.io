@@ -12,5 +12,6 @@ export async function getRepositories(username: string) {
     type: 'owner'
   });
 
-  return data;
+  // Filter out forked repositories
+  return data.filter(repo => !repo.fork);
 } 
