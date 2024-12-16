@@ -28,8 +28,7 @@ jobs:
       - name: Prepare directories
         run: |
           mkdir -p ./dist
-          mkdir -p ./dist/build
-          cp -r build/* ./dist/build/
+          cp -r build/* ./dist/
           [ -d "public" ] && cp -r public/* ./dist/
 
       - name: Create index.html
@@ -44,7 +43,7 @@ jobs:
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-            <link rel="stylesheet" href="/tmatijev-github-pages/build/root-RN4IJUHO.css">
+            <link rel="stylesheet" href="/tmatijev-github-pages/assets/root-RN4IJUHO.css">
           </head>
           <body>
             <div id="remix-app"></div>
@@ -64,7 +63,7 @@ jobs:
                 }
               };
             </script>
-            <script type="module" src="/tmatijev-github-pages/build/entry.client-ODJUD2DW.js"></script>
+            <script type="module" src="/tmatijev-github-pages/assets/entry.client-ODJUD2DW.js"></script>
           </body>
           </html>
           EOL
