@@ -4,6 +4,7 @@ const config = {
   assetsBuildDirectory: "public/build",
   serverBuildPath: "build/index.js",
   publicPath: "/tmatijev-github-pages/",
+  exportBuildDirectory: "dist",
   future: {
     v3_fetcherPersist: true,
     v3_lazyRouteDiscovery: true,

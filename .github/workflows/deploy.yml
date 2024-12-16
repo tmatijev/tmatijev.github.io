@@ -21,12 +21,11 @@ jobs:
 
       - name: Build
         run: |
+          # Clean previous builds
+          rm -rf build dist public/build
+
           # Build with static export
           REMIX_EXPORT=1 npm run build
-          
-          # Create dist directory and copy build outputs
-          mkdir -p dist
-          cp -r build/client/* dist/
           
           # Debug output
           ls -la dist
