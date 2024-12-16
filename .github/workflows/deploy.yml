@@ -27,15 +27,17 @@ jobs:
           # Build with static export
           REMIX_EXPORT=1 npm run build
           
+          # Create dist and copy build outputs
+          mkdir -p dist
+          cp -r build/client/* dist/
+          
           # Debug output
-          echo "Build directory contents:"
-          ls -la build
-          echo "Public directory contents:"
-          ls -la public
+          echo "Dist directory contents:"
+          ls -la dist
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          publish_dir: ./dist
           force_orphan: true
