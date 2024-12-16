@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "remix vite:dev",
     "build": "remix vite:build",
+    "build:static": "REMIX_EXPORT=1 remix vite:build && remix vite:export",
     "start": "remix-serve ./build/index.js"
   },
   "dependencies": {

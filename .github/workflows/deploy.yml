@@ -24,14 +24,16 @@ jobs:
           # Clean previous builds
           rm -rf build dist public/build
 
-          # Build with static export
-          REMIX_EXPORT=1 npm run build
+          # Build and export static files
+          npm run build:static
           
           # Create dist and copy build outputs
           mkdir -p dist
           cp -r build/client/* dist/
           
           # Debug output
+          echo "Build directory contents:"
+          ls -la build
           echo "Dist directory contents:"
           ls -la dist
 
