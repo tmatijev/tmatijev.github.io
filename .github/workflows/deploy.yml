@@ -11,25 +11,40 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v3
+
       - uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: 'npm'
-      
+
+      - name: Debug Directory Structure
+        run: |
+          pwd
+          ls -la
+          echo "Current directory contents:"
+          ls -R
+
       - name: Install dependencies
         run: npm ci
 
       - name: Build and Export
         run: |
           npm run build
-          npx remix export
+          npx remix export --out=export
         env:
           FORMSPREE_KEY: ${{ secrets.FORMSPREE_KEY }}
           RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
+
+      - name: Debug Build Output
+        run: |
+          echo "Build directory contents:"
+          ls -la build
+          echo "Export directory contents:"
+          ls -la export
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+          publish_dir: ./export
           force_orphan: true
