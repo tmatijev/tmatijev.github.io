@@ -21,11 +21,19 @@ jobs:
 
       - name: Build and Export
         run: |
+          pwd
+          ls -la
           npm run build
           npx remix export
+        working-directory: .
         env:
           FORMSPREE_KEY: ${{ secrets.FORMSPREE_KEY }}
           RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
+
+      - name: Debug Output
+        run: |
+          echo "Current directory structure:"
+          ls -R
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
