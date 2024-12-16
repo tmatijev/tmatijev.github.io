@@ -1,6 +1,7 @@
 /** @type {import('@remix-run/dev').AppConfig} */
-export default {
-  // ... other config
+const config = {
   serverEnvironmentVariables: ["FORMSPREE_KEY", "RECAPTCHA_SITE_KEY"],
   browserEnvironmentVariables: ["RECAPTCHA_SITE_KEY"]
-}; 
+};
+
+export default config; 

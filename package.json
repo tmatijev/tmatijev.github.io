@@ -1,9 +1,13 @@
 {
-  "name": "",
+  "name": "tmatijev-github-pages",
   "private": true,
+  "type": "module",
   "sideEffects": false,
   "scripts": {
     "dev": "remix vite:dev",
+    "build": "remix build",
+    "start": "remix-serve ./build/index.js",
+    "typecheck": "tsc",
     "test": "jest",
     "test:watch": "jest --watch",
     "cypress": "cypress open",
