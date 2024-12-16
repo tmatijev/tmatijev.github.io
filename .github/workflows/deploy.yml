@@ -19,60 +19,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build
-        run: npm run build
+      - name: Build and Export
+        run: |
+          npm run build
+          npx remix export
         env:
           FORMSPREE_KEY: ${{ secrets.FORMSPREE_KEY }}
           RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
-
-      - name: Prepare directories
-        run: |
-          mkdir -p ./dist
-          cp -r build/* ./dist/
-          [ -d "public" ] && cp -r public/* ./dist/
-
-      - name: Create index.html
-        run: |
-          cat > ./dist/index.html << 'EOL'
-          <!DOCTYPE html>
-          <html lang="en">
-          <head>
-            <meta charset="utf-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <title>Tomislav Matijević</title>
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-            <link rel="stylesheet" href="/tmatijev-github-pages/assets/root-RN4IJUHO.css">
-          </head>
-          <body>
-            <div id="remix-app"></div>
-            <script>
-              window.__remixContext = {
-                state: {
-                  loaderData: {},
-                  actionData: null,
-                  errors: null
-                },
-                future: {
-                  v3_fetcherPersist: true,
-                  v3_relativeSplatPath: true,
-                  v3_throwAbortReason: true,
-                  v3_singleFetch: true,
-                  v3_lazyRouteDiscovery: true,
-                }
-              };
-            </script>
-            <script type="module" src="/tmatijev-github-pages/assets/entry.client-ODJUD2DW.js"></script>
-          </body>
-          </html>
-          EOL
-          cp ./dist/index.html ./dist/404.html
-          touch ./dist/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./build
           force_orphan: true
