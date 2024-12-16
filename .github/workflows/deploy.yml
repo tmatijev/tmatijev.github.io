@@ -18,13 +18,11 @@ jobs:
       
       - name: Install dependencies
         run: npm ci
-        working-directory: ./tmatijev-github-pages
 
       - name: Build and Export
         run: |
           npm run build
           npx remix export
-        working-directory: ./tmatijev-github-pages
         env:
           FORMSPREE_KEY: ${{ secrets.FORMSPREE_KEY }}
           RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
@@ -33,5 +31,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./tmatijev-github-pages/build
+          publish_dir: ./build
           force_orphan: true
