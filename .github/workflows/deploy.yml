@@ -24,20 +24,12 @@ jobs:
           # Clean previous builds
           rm -rf build dist public/build
 
-          # Build static files
+          # Build and export static files
           npm run build:static
           
-          # Create dist directory
-          mkdir -p dist
-          cp -r build/client/* dist/
-          cp -r public/* dist/ || true
-          
-          # Create index.html if it doesn't exist
-          if [ ! -f dist/index.html ]; then
-            cp build/index.html dist/index.html || true
-          fi
-          
           # Debug output
+          echo "Build directory contents:"
+          ls -la build
           echo "Dist directory contents:"
           ls -la dist
 
