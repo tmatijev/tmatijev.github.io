@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "@remix-run/react";
 
 export default function WhatCanIDo() {
   return (
@@ -153,12 +154,12 @@ export default function WhatCanIDo() {
             that's my job. Together, we can create something that helps your business grow and succeed 
             online.
           </p>
-          <a 
-            href="mailto:your-email@example.com" 
+          <Link 
+            to="/contact" 
             className="inline-block bg-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition-colors"
           >
             Let's Start Building Together 🛠️
-          </a>
+          </Link>
         </motion.div>
       </div>
     </div>
