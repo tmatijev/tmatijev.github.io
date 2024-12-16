@@ -24,18 +24,18 @@ jobs:
           # Clean previous builds
           rm -rf build dist public/build
 
-          # Build and export static files
-          npm run build:static
+          # Build with static export
+          REMIX_EXPORT=1 npm run build
           
           # Debug output
           echo "Build directory contents:"
           ls -la build
-          echo "Dist directory contents:"
-          ls -la dist
+          echo "Public directory contents:"
+          ls -la public
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./public
           force_orphan: true
