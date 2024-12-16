@@ -8,6 +8,7 @@ const menuItems = [
   { name: "Portfolio", path: "/portfolio" },
   { name: "What Can I Do?", path: "/what-can-i-do" },
   { name: "Projects", path: "/projects" },
+  { name: "Contact", path: "/contact" },
 ];
 
 export function Navigation() {
