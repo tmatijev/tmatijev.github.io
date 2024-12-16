@@ -27,19 +27,15 @@ jobs:
           # Build and export static files
           npm run build:static
           
-          # Create dist and copy build outputs
-          mkdir -p dist
-          cp -r build/client/* dist/
-          
           # Debug output
           echo "Build directory contents:"
           ls -la build
-          echo "Dist directory contents:"
-          ls -la dist
+          echo "Client directory contents:"
+          ls -la build/client
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./build/client
           force_orphan: true
