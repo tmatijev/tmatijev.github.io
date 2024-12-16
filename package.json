@@ -4,8 +4,8 @@
   "type": "module",
   "scripts": {
     "dev": "remix vite:dev",
-    "build": "remix vite:build && vite build && npm run export",
-    "export": "remix vite:export",
+    "build": "remix vite:build",
+    "build:static": "REMIX_EXPORT=1 remix vite:build",
     "start": "remix-serve ./build/index.js"
   },
   "dependencies": {
