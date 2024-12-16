@@ -35,10 +35,11 @@ jobs:
               <meta charset="UTF-8">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
               <title>Matas Tatijevas</title>
+              <script type="module" src="/tmatijev-github-pages/assets/entry.client-CP_lL9Xh.js"></script>
             </head>
             <body>
               <div id="remix-app"></div>
-              <script type="module" src="./assets/entry.client-CP_lL9Xh.js"></script>
+              <script type="module" src="/tmatijev-github-pages/assets/components-YmPFgWot.js"></script>
             </body>
           </html>
           EOL
