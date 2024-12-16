@@ -24,8 +24,24 @@ jobs:
           # Clean previous builds
           rm -rf build dist public/build
 
-          # Build and export static files
-          npm run build:static
+          # Build static files
+          REMIX_EXPORT=1 npm run build
+          
+          # Create index.html
+          cat > build/client/index.html << 'EOL'
+          <!DOCTYPE html>
+          <html lang="en">
+            <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Matas Tatijevas</title>
+            </head>
+            <body>
+              <div id="remix-app"></div>
+              <script type="module" src="/tmatijev-github-pages/assets/entry.client-CP_lL9Xh.js"></script>
+            </body>
+          </html>
+          EOL
           
           # Debug output
           echo "Build directory contents:"
