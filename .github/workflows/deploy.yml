@@ -38,7 +38,7 @@ jobs:
             </head>
             <body>
               <div id="remix-app"></div>
-              <script type="module" src="/tmatijev-github-pages/assets/entry.client-CP_lL9Xh.js"></script>
+              <script type="module" src="./assets/entry.client-CP_lL9Xh.js"></script>
             </body>
           </html>
           EOL
