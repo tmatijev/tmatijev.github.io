@@ -30,7 +30,7 @@ jobs:
       - name: Build and Export
         run: |
           npm run build
-          npx remix export --out=export
+          npx remix export
         env:
           FORMSPREE_KEY: ${{ secrets.FORMSPREE_KEY }}
           RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
@@ -39,12 +39,12 @@ jobs:
         run: |
           echo "Build directory contents:"
           ls -la build
-          echo "Export directory contents:"
-          ls -la export
+          echo "Public directory contents:"
+          ls -la public
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./export
+          publish_dir: ./build
           force_orphan: true
