@@ -28,7 +28,8 @@ jobs:
       - name: Prepare directories
         run: |
           mkdir -p ./dist
-          cp -r build/* ./dist/
+          mkdir -p ./dist/build
+          cp -r build/* ./dist/build/
           [ -d "public" ] && cp -r public/* ./dist/
 
       - name: Create index.html
