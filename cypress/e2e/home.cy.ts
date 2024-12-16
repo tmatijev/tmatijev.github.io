@@ -1,7 +1,7 @@
 describe('Navigation', () => {
   it('should display homepage title', () => {
     cy.visit('/');
-    cy.contains('Matas Tatijevas').should('be.visible');
+    cy.contains('Tomislav Matijević').should('be.visible');
     cy.contains('Home').should('have.class', 'bg-gray-100');
   });
 
