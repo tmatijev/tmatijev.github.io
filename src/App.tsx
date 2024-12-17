@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import Home from './sections/Home';
 import Portfolio from './sections/Portfolio';
 import WhatCanIDo from './sections/WhatCanIDo';
