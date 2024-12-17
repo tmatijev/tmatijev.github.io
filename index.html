@@ -1,57 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="./vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tomislav Matijević | Principal Frontend Engineer</title>
-
+    
     <!-- Primary Meta Tags -->
-    <meta
-      name="title"
-      content="Tomislav Matijević | Principal Frontend Engineer"
-    />
-    <meta
-      name="description"
-      content="Principal Frontend Engineer with 10+ years of experience in React, Remix, and NextJS. Specializing in modern web development and team leadership."
-    />
-    <meta
-      name="keywords"
-      content="Frontend Engineer, React Developer, Web Development, UI/UX, JavaScript, TypeScript, NextJS, Remix"
-    />
+    <meta name="title" content="Tomislav Matijević | Principal Frontend Engineer" />
+    <meta name="description" content="Principal Frontend Engineer with 10+ years of experience in React, Remix, and NextJS. Specializing in modern web development and team leadership." />
+    <meta name="keywords" content="Frontend Engineer, React Developer, Web Development, UI/UX, JavaScript, TypeScript, NextJS, Remix" />
     <meta name="author" content="Tomislav Matijević" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://tmatijev.github.io/" />
-    <meta
-      property="og:title"
-      content="Tomislav Matijević | Principal Frontend Engineer"
-    />
-    <meta
-      property="og:description"
-      content="Principal Frontend Engineer with 10+ years of experience in React, Remix, and NextJS. Specializing in modern web development and team leadership."
-    />
-    <meta
-      property="og:image"
-      content="/tmatijev.github.io/images/avatar.jpeg"
-    />
+    <meta property="og:title" content="Tomislav Matijević | Principal Frontend Engineer" />
+    <meta property="og:description" content="Principal Frontend Engineer with 10+ years of experience in React, Remix, and NextJS. Specializing in modern web development and team leadership." />
+    <meta property="og:image" content="https://tmatijev.github.io/images/avatar.jpeg" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://tmatijev.github.io/" />
-    <meta
-      property="twitter:title"
-      content="Tomislav Matijević | Principal Frontend Engineer"
-    />
-    <meta
-      property="twitter:description"
-      content="Principal Frontend Engineer with 10+ years of experience in React, Remix, and NextJS. Specializing in modern web development and team leadership."
-    />
-    <meta
-      property="twitter:image"
-      content="/images/avatar.jpeg"
-    />
+    <meta property="twitter:title" content="Tomislav Matijević | Principal Frontend Engineer" />
+    <meta property="twitter:description" content="Principal Frontend Engineer with 10+ years of experience in React, Remix, and NextJS. Specializing in modern web development and team leadership." />
+    <meta property="twitter:image" content="https://tmatijev.github.io/images/avatar.jpeg" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -61,7 +34,7 @@
         "name": "Tomislav Matijević",
         "jobTitle": "Principal Frontend Engineer",
         "url": "https://tmatijev.github.io/",
-        "image": "/images/avatar.jpeg",
+        "image": "https://tmatijev.github.io/images/avatar.jpeg",
         "sameAs": [
           "https://github.com/tmatijev",
           "https://linkedin.com/in/tmatijev"
@@ -85,37 +58,31 @@
 
     <!-- SPA GitHub Pages Redirect Script -->
     <script type="text/javascript">
-      (function (l) {
-        if (l.search[1] === "/") {
-          var decoded = l.search
-            .slice(1)
-            .split("&")
-            .map(function (s) {
-              return s.replace(/~and~/g, "&");
-            })
-            .join("?");
-          window.history.replaceState(
-            null,
-            null,
-            l.pathname.slice(0, -1) + decoded + l.hash
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
           );
           // Prevent automatic scrolling
           window.scrollTo(0, 0);
         }
-      })(window.location);
+      }(window.location))
     </script>
 
     <!-- Preload critical assets -->
-    <link rel="preload" href="images/avatar.jpeg" as="image" />
+    <link rel="preload" href="./images/avatar.jpeg" as="image" />
     <link rel="preload" href="data:application/octet-stream;base64,aW1wb3J0IHsgU3RyaWN0TW9kZSB9IGZyb20gJ3JlYWN0JwppbXBvcnQgeyBjcmVhdGVSb290IH0gZnJvbSAncmVhY3QtZG9tL2NsaWVudCcKaW1wb3J0ICcuL2luZGV4LmNzcycKaW1wb3J0IEFwcCBmcm9tICcuL0FwcC50c3gnCgpjcmVhdGVSb290KGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdyb290JykhKS5yZW5kZXIoCiAgPFN0cmljdE1vZGU+CiAgICA8QXBwIC8+CiAgPC9TdHJpY3RNb2RlPiwKKQo=" as="script" type="module" />
-
+    
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <script type="module" crossorigin src="/tmatijev.github.io/assets/index-DNkcp1aG.js"></script>
-    <link rel="modulepreload" crossorigin href="/tmatijev.github.io/assets/vendor-COdqnfBF.js">
-    <link rel="modulepreload" crossorigin href="/tmatijev.github.io/assets/home-BKmbFPa7.js">
-    <link rel="stylesheet" crossorigin href="/tmatijev.github.io/assets/index-OR9QnlLP.css">
+    <script type="module" crossorigin src="./assets/index-BTqL9Hkz.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/vendor-COdqnfBF.js">
+    <link rel="modulepreload" crossorigin href="./assets/home-yL9fcxwu.js">
+    <link rel="stylesheet" crossorigin href="./assets/index-OR9QnlLP.css">
   </head>
   <body>
     <div id="root"></div>
