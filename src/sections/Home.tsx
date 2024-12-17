@@ -191,22 +191,22 @@ export default function Home() {
               </motion.div>
 
               <motion.div
+                className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 mt-8"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7 }}
-                className="space-x-4"
+                transition={{ delay: 0.6 }}
               >
                 <button
-                  onClick={() => scrollToSection('portfolio')}
-                  className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg"
+                  onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="w-full sm:w-auto bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors"
                 >
-                  View my Portfolio →
+                  View my Portfolio
                 </button>
                 <button
-                  onClick={() => scrollToSection('what-can-i-do')}
-                  className="inline-block px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors shadow-md hover:shadow-lg"
+                  onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="w-full sm:w-auto bg-white text-blue-600 px-8 py-3 rounded-full font-semibold border-2 border-blue-600 hover:bg-blue-50 transition-colors"
                 >
-                  What can I do? →
+                  What can I do?
                 </button>
               </motion.div>
             </div>
