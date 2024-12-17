@@ -198,7 +198,7 @@ export default function Home() {
                   View my Portfolio
                 </button>
                 <button
-                  onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => document.getElementById('what-can-i-do')?.scrollIntoView({ behavior: 'smooth' })}
                   className="w-full sm:w-auto bg-white text-blue-600 px-8 py-3 rounded-full font-semibold border-2 border-blue-600 hover:bg-blue-50 transition-colors"
                 >
                   What can I do?
