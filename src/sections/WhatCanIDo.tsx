@@ -9,14 +9,44 @@ export default function WhatCanIDo() {
       description: "I'll create a website that perfectly represents your business and impresses your visitors. Whether they're using phones, tablets, or computers, your site will look fantastic and work smoothly - just like the big brands!"
     },
     {
-      emoji: "🚀",
-      title: "Make Your Website Lightning Fast",
-      description: "Is your website running slow? I'll turbocharge it! Just like I did for other companies, reducing their load times by up to 85%. Your visitors won't have to wait around - they'll get straight to what matters!"
+      emoji: "🚀️",
+      title: "Set Up Your Online Store",
+      description: "Ready to start selling online? I'll build you a complete online store where customers can easily find and buy your products. Think of it as your own mini-Amazon, but for your specific business!"
+    },
+    {
+      emoji: "⚡",
+      title: "Create Custom Digital Tools",
+      description: "Need specific tools for your business? I can build systems that make your work easier - like appointment booking, customer management, or any other digital solution that saves you time and helps you grow!"
     },
     {
       emoji: "✨",
       title: "Upgrade Your Current Website",
       description: "Got an existing website that's not performing? I'll transform it into something modern, fast, and effective. It's like giving your digital presence a complete makeover - your visitors will love the difference!"
+    },
+    {
+      emoji: "🤖",
+      title: "Make Your Website Lightning Fast",
+      description: "Is your website running slow? I'll turbocharge it! Just like I did for other companies, reducing their load times by up to 85%. Your visitors won't have to wait around - they'll get straight to what matters!"
+    },
+    {
+      emoji: "🎯",
+      title: "Design That Catches Eyes",
+      description: "Need a fresh look? With my background in visual design, I'll create beautiful, user-friendly designs that make your brand shine. From logos to complete website designs, I'll make sure you stand out from the crowd!"
+    },
+    {
+      emoji: "👥",
+      title: "Guide Your Tech Team",
+      description: "Got a development team that needs direction? I've led multiple teams to success, creating standards and best practices that stick. Think of me as your technical co-pilot, helping your team reach new heights!"
+    },
+    {
+      emoji: "🔄",
+      title: "Modernize Your Technology",
+      description: "Stuck with outdated tech? I'll help you move to modern solutions that make your life easier. It's like renovating a house - keeping what works while upgrading everything else to today's standards!"
+    },
+    {
+      emoji: "💡",
+      title: "Get Expert Advice",
+      description: "Need guidance? I offer consultations for teams and companies, sharing insights from years of experience. Think of it as having a tech-savvy friend who can help you make the right decisions for your digital future!"
     },
     {
       emoji: "🤖",
