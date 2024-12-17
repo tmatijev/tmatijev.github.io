@@ -24,11 +24,6 @@ export default function Home() {
   // Add parallax effect based on scroll progress
   const parallaxOffset = scrollProgress * 0.5; // Adjust multiplier for effect intensity
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <div className="min-h-screen bg-gray-50 relative overflow-hidden pt-24">
       {/* Background decoration with parallax */}
