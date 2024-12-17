@@ -7,6 +7,23 @@ import {
 import { config } from "../config";
 
 function ContactForm() {
+  if (!config.formspreeKey || !config.recaptchaKey) {
+    return (
+      <div className="bg-white rounded-xl shadow-lg p-8">
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Form</h2>
+        <p className="text-gray-600">
+          Contact form is temporarily unavailable. Please email me directly at{" "}
+          <a
+            href="mailto:matas0412@gmail.com"
+            className="text-blue-600 hover:text-blue-800"
+          >
+            matas0412@gmail.com
+          </a>
+        </p>
+      </div>
+    );
+  }
+
   const { executeRecaptcha } = useGoogleReCaptcha();
   const [state, handleSubmit] = useForm(config.formspreeKey);
 
