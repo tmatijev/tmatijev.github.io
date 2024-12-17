@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { BriefcaseIcon, UserGroupIcon } from '@heroicons/react/24/outline';
-import { JobCard } from '../components/JobCard';
+import { ProjectCard } from '../components/ProjectCard';
 import type { Job } from '../types/portfolio';
 
 const container = {
@@ -296,7 +296,7 @@ export default function Portfolio() {
             </div>
             <div className="space-y-8">
               {fullTimePositions.map((job) => (
-                <JobCard key={`${job.company}-${job.period}`} job={job} />
+                <ProjectCard key={`${job.company}-${job.period}`} job={job} />
               ))}
             </div>
           </div>
@@ -309,7 +309,7 @@ export default function Portfolio() {
             </div>
             <div className="space-y-8">
               {freelanceProjects.map((job) => (
-                <JobCard key={`${job.company}-${job.period}`} job={job} />
+                <ProjectCard key={`${job.company}-${job.period}`} job={job} />
               ))}
             </div>
           </div>
