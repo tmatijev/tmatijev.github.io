@@ -1,36 +1,51 @@
-import Home from './sections/Home';
-import Portfolio from './sections/Portfolio';
-import WhatCanIDo from './sections/WhatCanIDo';
-import Projects from './sections/Projects';
-import Contact from './sections/Contact';
-import Navigation from './components/Navigation';
+import { ErrorBoundary } from './components/ErrorBoundary';
+import { lazy, Suspense } from 'react';
+
+// Lazy load components
+const Home = lazy(() => import('./sections/Home'));
+const Portfolio = lazy(() => import('./sections/Portfolio'));
+const WhatCanIDo = lazy(() => import('./sections/WhatCanIDo'));
+const Projects = lazy(() => import('./sections/Projects'));
+const Contact = lazy(() => import('./sections/Contact'));
+const Navigation = lazy(() => import('./components/Navigation'));
+
+// Loading component
+const Loading = () => (
+  <div className="min-h-screen flex items-center justify-center">
+    <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-blue-600"></div>
+  </div>
+);
 
 function App() {
   return (
-    <div className="min-h-screen">
-      <Navigation />
-      <main>
-        <section id="home">
-          <Home />
-        </section>
-        
-        <section id="portfolio">
-          <Portfolio />
-        </section>
-        
-        <section id="what-can-i-do">
-          <WhatCanIDo />
-        </section>
+    <ErrorBoundary>
+      <Suspense fallback={<Loading />}>
+        <div className="min-h-screen">
+          <Navigation />
+          <main>
+            <section id="home" aria-label="Home section">
+              <Home />
+            </section>
+            
+            <section id="portfolio" aria-label="Portfolio section">
+              <Portfolio />
+            </section>
+            
+            <section id="what-can-i-do" aria-label="Services section">
+              <WhatCanIDo />
+            </section>
 
-        <section id="projects">
-          <Projects />
-        </section>
-        
-        <section id="contact">
-          <Contact />
-        </section>
-      </main>
-    </div>
+            <section id="projects" aria-label="Projects section">
+              <Projects />
+            </section>
+            
+            <section id="contact" aria-label="Contact section">
+              <Contact />
+            </section>
+          </main>
+        </div>
+      </Suspense>
+    </ErrorBoundary>
   );
 }
 

@@ -5,8 +5,25 @@ import {
   FaceSmileIcon,
   BookOpenIcon,
 } from "@heroicons/react/24/outline";
+import { OptimizedImage } from '../components/OptimizedImage';
+import { useScrollPosition } from '../hooks/useScrollPosition';
+import { measurePerformance } from '../utils/performance';
+import { useEffect } from 'react';
 
 export default function Home() {
+  const { scrollProgress } = useScrollPosition();
+  
+  useEffect(() => {
+    measurePerformance.markStart('home-render');
+    return () => {
+      measurePerformance.markEnd('home-render');
+      measurePerformance.clearMarks('home-render');
+    };
+  }, []);
+
+  // Add parallax effect based on scroll progress
+  const parallaxOffset = scrollProgress * 0.5; // Adjust multiplier for effect intensity
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
@@ -14,8 +31,11 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50 relative overflow-hidden pt-16">
-      {/* Background decoration */}
-      <div className="absolute inset-0 z-0">
+      {/* Background decoration with parallax */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{ transform: `translateY(${parallaxOffset}px)` }}
+      >
         <div className="absolute top-20 left-20 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob" />
         <div className="absolute top-40 right-20 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000" />
         <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000" />
@@ -36,13 +56,13 @@ export default function Home() {
               transition={{ delay: 0.2 }}
               className="relative"
             >
-              <div className="w-48 h-48 rounded-full overflow-hidden ring-4 ring-white shadow-xl">
-                <img
-                  src="./images/avatar.jpeg"
-                  alt="Tomislav Matijević"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              <OptimizedImage
+                src="./images/avatar.jpeg"
+                alt="Tomislav Matijević"
+                width={192}
+                height={192}
+                className="w-48 h-48 rounded-full ring-4 ring-white shadow-xl"
+              />
             </motion.div>
 
             <div className="flex-1">
