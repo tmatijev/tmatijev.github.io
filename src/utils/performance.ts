@@ -1,12 +1,12 @@
 export const measurePerformance = {
   markStart: (label: string) => {
-    if (process.env.NODE_ENV === 'development') {
+    if (import.meta.env.DEV) {
       performance.mark(`${label}-start`);
     }
   },
 
   markEnd: (label: string) => {
-    if (process.env.NODE_ENV === 'development') {
+    if (import.meta.env.DEV) {
       performance.mark(`${label}-end`);
       performance.measure(label, `${label}-start`, `${label}-end`);
       
@@ -16,7 +16,7 @@ export const measurePerformance = {
   },
 
   clearMarks: (label: string) => {
-    if (process.env.NODE_ENV === 'development') {
+    if (import.meta.env.DEV) {
       performance.clearMarks(`${label}-start`);
       performance.clearMarks(`${label}-end`);
       performance.clearMeasures(label);
