@@ -161,7 +161,7 @@ function ContactForm() {
 export default function Contact() {
   return (
     <GoogleReCaptchaProvider reCaptchaKey={config.recaptchaKey}>
-      <div className="min-h-screen bg-gradient-to-b from-white to-blue-50">
+      <div className="min-h-screen bg-gradient-to-b from-white to-blue-50 pt-16">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

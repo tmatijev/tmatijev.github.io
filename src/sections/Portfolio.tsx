@@ -271,7 +271,7 @@ export default function Portfolio() {
   const freelanceProjects = employmentHistory.filter(job => job.type === 'freelance');
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-12 pt-16">
       <motion.div 
         className="max-w-4xl mx-auto p-8"
         initial={{ opacity: 0 }}

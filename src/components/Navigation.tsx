@@ -1,9 +1,14 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 export default function Navigation() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
+    setIsOpen(false);
   };
 
   return (
@@ -17,33 +22,69 @@ export default function Navigation() {
             TM
           </button>
           
-          <div className="flex gap-6">
+          {/* Desktop Menu */}
+          <div className="hidden md:flex gap-6">
+            <button onClick={() => scrollToSection('portfolio')} className="text-gray-600 hover:text-blue-600 transition-colors">
+              Portfolio
+            </button>
+            <button onClick={() => scrollToSection('what-can-i-do')} className="text-gray-600 hover:text-blue-600 transition-colors">
+              What Can I Do?
+            </button>
+            <button onClick={() => scrollToSection('projects')} className="text-gray-600 hover:text-blue-600 transition-colors">
+              Projects
+            </button>
+            <button onClick={() => scrollToSection('contact')} className="text-gray-600 hover:text-blue-600 transition-colors">
+              Contact
+            </button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button 
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-gray-100"
+          >
+            {isOpen ? (
+              <XMarkIcon className="h-6 w-6" />
+            ) : (
+              <Bars3Icon className="h-6 w-6" />
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {isOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="md:hidden py-4 space-y-4"
+          >
             <button 
               onClick={() => scrollToSection('portfolio')}
-              className="text-gray-600 hover:text-blue-600 transition-colors"
+              className="block w-full text-left px-4 py-2 text-gray-600 hover:text-blue-600 hover:bg-gray-100 rounded"
             >
               Portfolio
             </button>
             <button 
               onClick={() => scrollToSection('what-can-i-do')}
-              className="text-gray-600 hover:text-blue-600 transition-colors"
+              className="block w-full text-left px-4 py-2 text-gray-600 hover:text-blue-600 hover:bg-gray-100 rounded"
             >
               What Can I Do?
             </button>
             <button 
               onClick={() => scrollToSection('projects')}
-              className="text-gray-600 hover:text-blue-600 transition-colors"
+              className="block w-full text-left px-4 py-2 text-gray-600 hover:text-blue-600 hover:bg-gray-100 rounded"
             >
               Projects
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="text-gray-600 hover:text-blue-600 transition-colors"
+              className="block w-full text-left px-4 py-2 text-gray-600 hover:text-blue-600 hover:bg-gray-100 rounded"
             >
               Contact
             </button>
-          </div>
-        </div>
+          </motion.div>
+        )}
       </div>
     </nav>
   );
