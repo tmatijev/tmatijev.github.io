@@ -7,6 +7,9 @@ import {
 import { config } from "../config";
 
 function ContactForm() {
+  const { executeRecaptcha } = useGoogleReCaptcha();
+  const [state, handleSubmit] = useForm(config.formspreeKey);
+
   if (!config.formspreeKey || !config.recaptchaKey) {
     return (
       <div className="bg-white rounded-xl shadow-lg p-8">
@@ -23,9 +26,6 @@ function ContactForm() {
       </div>
     );
   }
-
-  const { executeRecaptcha } = useGoogleReCaptcha();
-  const [state, handleSubmit] = useForm(config.formspreeKey);
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
