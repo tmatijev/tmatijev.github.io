@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import {
   UserIcon,
   GlobeAltIcon,
@@ -8,6 +7,11 @@ import {
 } from "@heroicons/react/24/outline";
 
 export default function Home() {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 relative overflow-hidden">
       {/* Background decoration */}
@@ -172,18 +176,18 @@ export default function Home() {
                 transition={{ delay: 0.7 }}
                 className="space-x-4"
               >
-                <Link
-                  to="/portfolio"
+                <button
+                  onClick={() => scrollToSection('portfolio')}
                   className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg"
                 >
                   View my Portfolio →
-                </Link>
-                <Link
-                  to="/what-can-i-do"
+                </button>
+                <button
+                  onClick={() => scrollToSection('what-can-i-do')}
                   className="inline-block px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors shadow-md hover:shadow-lg"
                 >
                   What can I do? →
-                </Link>
+                </button>
               </motion.div>
             </div>
           </div>

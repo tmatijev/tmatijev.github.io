@@ -1,27 +1,38 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import Home from './sections/Home';
+import Portfolio from './sections/Portfolio';
+import WhatCanIDo from './sections/WhatCanIDo';
+import Projects from './sections/Projects';
+import Contact from './sections/Contact';
 import Navigation from './components/Navigation';
-import Home from './pages/Home';
-import Portfolio from './pages/Portfolio';
-import WhatCanIDo from './pages/WhatCanIDo';
-import Projects from './pages/Projects';
-import Contact from './pages/Contact';
 
 function App() {
   return (
-    <Router basename="/">
-      <div className="min-h-screen">
-        <Navigation />
-        <main className="pt-16">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/portfolio" element={<Portfolio />} />
-            <Route path="/what-can-i-do" element={<WhatCanIDo />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </main>
-      </div>
-    </Router>
+    <div className="min-h-screen">
+      <Navigation />
+      <main>
+        <section id="home">
+          <Home />
+        </section>
+        
+        <section id="portfolio">
+          <Portfolio />
+        </section>
+        
+        <section id="what-can-i-do">
+          <WhatCanIDo />
+        </section>
+
+        <section id="projects">
+          <Projects />
+        </section>
+        
+        <section id="contact">
+          <Contact />
+        </section>
+      </main>
+    </div>
   );
 }
+
 export default App;
