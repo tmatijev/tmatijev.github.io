@@ -30,7 +30,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 relative overflow-hidden pt-16">
+    <div className="min-h-screen bg-gray-50 relative overflow-hidden pt-24">
       {/* Background decoration with parallax */}
       <div 
         className="absolute inset-0 z-0"
