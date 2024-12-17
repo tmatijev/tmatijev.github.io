@@ -11,7 +11,10 @@ export default function Projects() {
     const fetchRepositories = async () => {
       try {
         const repos = await getRepositories("tmatijev");
-        setRepositories(repos);
+        const sortedRepos = repos.sort((a, b) => 
+          new Date(b.pushed_at).getTime() - new Date(a.pushed_at).getTime()
+        );
+        setRepositories(sortedRepos);
       } catch (error) {
         console.error('Error fetching repositories:', error);
       } finally {
