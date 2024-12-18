@@ -11,7 +11,7 @@ export default function Projects() {
     const fetchRepositories = async () => {
       try {
         const repos = await getRepositories("tmatijev");
-        const sortedRepos = repos.sort((a, b) => 
+        const sortedRepos = repos.sort((a: Repository, b: Repository) => 
           new Date(b.pushed_at).getTime() - new Date(a.pushed_at).getTime()
         );
         setRepositories(sortedRepos);
