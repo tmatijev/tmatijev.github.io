@@ -23,7 +23,7 @@ Principal Frontend Engineer with 10+ years of experience in React, Remix, and Ne
 - **Styling:** Tailwind CSS
 - **Animations:** Framer Motion
 - **Performance:** Optimized assets and lazy loading
-- **Deployment:** [Your deployment platform]
+- **Deployment:** Vercel 
 
 ## 📫 Get in Touch
 
