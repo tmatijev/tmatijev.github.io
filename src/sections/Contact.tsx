@@ -8,7 +8,7 @@ import { config } from "../config";
 
 function ContactForm() {
   const { executeRecaptcha } = useGoogleReCaptcha();
-  const [state, handleSubmit] = useForm(config.formspreeKey);
+  const [state, handleSubmit] = useForm(import.meta.env.VITE_FORMSPREE_KEY);
 
   if (!config.formspreeKey || !config.recaptchaKey) {
     return (
