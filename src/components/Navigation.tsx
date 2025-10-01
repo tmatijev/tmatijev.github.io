@@ -8,6 +8,7 @@ export function Navigation() {
 
   const navItems = [
     { id: 'home', label: 'Home' },
+    { id: 'before-you-continue', label: 'Before you continue' },
     { id: 'portfolio', label: 'Portfolio' },
     { id: 'what-can-i-do', label: 'Services' },
     { id: 'projects', label: 'Projects' },
