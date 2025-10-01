@@ -7,6 +7,7 @@ const Portfolio = lazy(() => import('./sections/Portfolio'));
 const WhatCanIDo = lazy(() => import('./sections/WhatCanIDo'));
 const Projects = lazy(() => import('./sections/Projects'));
 const Contact = lazy(() => import('./sections/Contact'));
+const BeforeYouContinue = lazy(() => import('./sections/BeforeYouContinue'));
 
 // Simple loading component
 const Loading = () => (
@@ -23,6 +24,12 @@ function App() {
       <section id="home">
         <Suspense fallback={<Loading />}>
           <Home />
+        </Suspense>
+      </section>
+
+      <section id="before-you-continue">
+        <Suspense fallback={<Loading />}>
+          <BeforeYouContinue />
         </Suspense>
       </section>
 
