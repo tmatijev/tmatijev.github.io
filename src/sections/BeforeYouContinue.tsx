@@ -170,9 +170,7 @@ export default function BeforeYouContinue({ items = [] }: BeforeYouContinueProps
                       )}
                     </AnimatePresence>
 
-                    <div className="mt-4 text-right text-sm text-gray-600">
-                      I’m your man.
-                    </div>
+                    
                   </div>
                 </div>
               </motion.div>
