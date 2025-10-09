@@ -25,7 +25,7 @@ export default function Home() {
   const parallaxOffset = scrollProgress * 0.5; // Adjust multiplier for effect intensity
 
   return (
-    <div className="min-h-screen bg-gray-50 relative overflow-hidden pt-24">
+    <div className="min-h-screen bg-gray-50 relative overflow-hidden pt-24 pb-24">
       {/* Background decoration with parallax */}
       <div 
         className="absolute inset-0 z-0"
