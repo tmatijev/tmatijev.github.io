@@ -71,7 +71,7 @@ export default function Portfolio() {
       title: "eZ Publish / Front-end Engineer",
       company: "Netgen",
       location: "Osijek",
-      period: "MARCH 2012 — AUGUST 2011",
+      period: "MARCH 2012 — AUGUST 2014",
       type: "fulltime",
       responsibilities: [
         "eZ Publish template programming",
