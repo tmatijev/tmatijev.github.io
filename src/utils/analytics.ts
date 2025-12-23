@@ -1,5 +1,5 @@
 export const pageview = (path: string, title?: string) => {
-  // @ts-ignore
+  // @ts-expect-error - gtag is defined in index.html
   window.gtag?.('event', 'page_view', {
     page_title: title || document.title,
     page_location: location.href,
@@ -8,8 +8,6 @@ export const pageview = (path: string, title?: string) => {
 };
 
 export const event = (name: string, params?: Record<string, string | number | boolean>) => {
-  // @ts-ignore
+  // @ts-expect-error - gtag is defined in index.html
   window.gtag?.('event', name, params || {});
 };
-
-
