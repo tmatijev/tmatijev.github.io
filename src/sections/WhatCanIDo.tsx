@@ -56,17 +56,21 @@ export default function WhatCanIDo() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-blue-50 pt-16">
+    <div className="min-h-screen bg-white dark:bg-dark-bg py-20 relative overflow-hidden transition-colors duration-300">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-[url('/grid.svg')] dark:bg-[url('/grid-dark.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-10" />
+
       {/* Hero Section */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="py-20 px-6 text-center"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="text-center px-6 mb-20 relative z-10"
       >
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-          Let Me Build Something Amazing For You! 🚀
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          Let Me Build Something <span className="text-blue-600 dark:text-blue-400">Amazing</span> For You! 🚀
         </h1>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+        <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
           Not sure about all the technical stuff? No worries! Here's what I can
           build and do for you, explained in plain English - because great
           websites shouldn't be complicated to understand! 😊
@@ -74,44 +78,56 @@ export default function WhatCanIDo() {
       </motion.div>
 
       {/* Services Section */}
-      <div className="max-w-6xl mx-auto px-6 pb-20">
+      <div className="max-w-7xl mx-auto px-6 pb-20 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="grid md:grid-cols-2 gap-8"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {services.map((service) => (
-            <ServiceCard
+          {services.map((service, index) => (
+            <motion.div
               key={service.title}
-              emoji={service.emoji}
-              title={service.title}
-              description={service.description}
-            />
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+            >
+              <ServiceCard
+                emoji={service.emoji}
+                title={service.title}
+                description={service.description}
+              />
+            </motion.div>
           ))}
         </motion.div>
 
         {/* Call to Action */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="text-center mt-16"
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mt-20"
         >
-          <h3 className="text-2xl font-bold text-gray-900 mb-6">
-            Ready to Build Something Special? 🌟
-          </h3>
-          <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-            You bring the ideas, and I'll bring them to life! Don't worry about
-            the technical details - that's my job. Together, we can create
-            something that helps your business grow and succeed online.
-          </p>
-          <button
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="inline-block bg-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition-colors"
-          >
-            Let's Start Building Together 🛠️
-          </button>
+          <div className="glass-card max-w-3xl mx-auto p-12 rounded-3xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -mr-32 -mt-32" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl -ml-32 -mb-32" />
+
+            <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 relative z-10">
+              Ready to Build Something Special? 🌟
+            </h3>
+            <p className="text-gray-600 dark:text-gray-400 mb-8 relative z-10">
+              You bring the ideas, and I'll bring them to life! Don't worry about
+              the technical details - that's my job. Together, we can create
+              something that helps your business grow and succeed online.
+            </p>
+            <button
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="btn-primary relative z-10"
+            >
+              Let's Start Building Together 🛠️
+            </button>
+          </div>
         </motion.div>
       </div>
     </div>

@@ -1,17 +1,6 @@
 import { motion } from 'framer-motion';
-import { BriefcaseIcon, UserGroupIcon } from '@heroicons/react/24/outline';
-import { ProjectCard } from '../components/ProjectCard';
+import { BriefcaseIcon, CalendarIcon, MapPinIcon } from '@heroicons/react/24/outline';
 import type { Job } from '../types/portfolio';
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-};
 
 export default function Portfolio() {
   const employmentHistory: Job[] = [
@@ -97,224 +86,124 @@ export default function Portfolio() {
       ]
     },
     {
-      title: "Front-end Developer & UI/UX Advisor",
-      company: "FragranceX/Perfume.com (via Toptal)",
-      location: "Osijek",
-      period: "FEBRUARY 2015 — APRIL 2015",
+      title: "Freelance Front-end Developer",
+      company: "Various Clients (via Toptal)",
+      location: "Remote",
+      period: "2015 — 2016",
       type: "freelance",
       responsibilities: [
-        "Served as a UI/UX advisor",
-        "Implemented a responsive image gallery solution",
-        "Implemented a responsive product management solution",
-        "Designed new visual improvements for products",
-        "Implemented new interactive responsive navigation"
-      ]
-    },
-    {
-      title: "Front-end Developer",
-      company: "Fort Hill Company (via Toptal)",
-      location: "Osijek (remote)",
-      period: "JUNE 2015 — JANUARY 2017",
-      type: "freelance",
-      responsibilities: [
-        "Created a responsive form wizard with client-side validation",
-        "Created jQuery plugins based on autocomplete functionality",
-        "Improved UI/UX elements in the application",
-        "Used Bootstrap as the main framework",
-        "Served as UI/UX advisor",
-        "Implemented and customized Highcharts library events"
+        "Successfully completed multiple high-stakes projects for international clients",
+        "Specialized in UI/UX improvements, responsive design, and performance optimization",
+        "Worked with FragranceX, Fort Hill Company, Matdagboken, WineGreeting, Pixie, Lemeno, Pareto Solutions, Innovative Operations, Copyop, and Pavlovspig",
+        "Consistently delivered high-quality code and advisory services"
       ],
       technologies: [
-        "HTML", "CSS", "JavaScript", "jQuery", "Sass",
-        "Gulp", "Bower", "Ruby on Rails"
-      ]
-    },
-    {
-      title: "Front-end Developer & UI/UX Advisor",
-      company: "Matdagboken i Sverige AB (via Toptal)",
-      location: "Osijek (remote)",
-      period: "APRIL 2015 — MAY 2015",
-      type: "freelance",
-      responsibilities: [
-        "Created visual solutions for responsive site fragments",
-        "Created new HTML structure for tablet/mobile devices",
-        "Created CSS for responsive solutions",
-        "Maintained existing desktop HTML structure"
-      ]
-    },
-    {
-      title: "Front-end/Drupal Developer",
-      company: "WineGreeting (via Toptal)",
-      location: "Osijek (remote)",
-      period: "MAY 2015 — JUNE 2015",
-      type: "freelance",
-      responsibilities: [
-        "Created new Drupal themes",
-        "Worked with designer on UI/UX improvements",
-        "Created HTML, CSS, and JavaScript from Photoshop files",
-        "Created administration classes and fields"
-      ],
-      technologies: [
-        "Drupal", "PHP", "HTML", "CSS", "Sass",
-        "Gulp", "Bower", "JavaScript", "jQuery"
-      ]
-    },
-    {
-      title: "Front-end/WordPress Developer",
-      company: "Pixie (via Toptal)",
-      location: "Osijek (remote)",
-      period: "JUNE 2015 — JULY 2015",
-      type: "freelance",
-      responsibilities: [
-        "Improved WordPress theme dynamics",
-        "Created interactive product promotion pages",
-        "Implemented and improved interactive zoom functionality",
-        "Configured CDN and improved website performance"
-      ],
-      technologies: [
-        "WordPress", "PHP", "HTML5", "CSS", "Sass",
-        "JavaScript", "jQuery", "Git"
-      ]
-    },
-    {
-      title: "Front-end/Back-end Developer",
-      company: "Lemeno (via Toptal)",
-      location: "Osijek (remote)",
-      period: "AUGUST 2015 — SEPTEMBER 2015",
-      type: "freelance",
-      responsibilities: [
-        "Converted website to be completely responsive",
-        "Implemented RTL and LTR direction support",
-        "Improved UI/UX components",
-        "Created and implemented design propositions",
-        "Improved site speed and SEO"
-      ],
-      technologies: [
-        "CodeIgniter", "PHP", "HTML", "CSS", "JavaScript",
-        "jQuery", "Gulp", "Bower"
-      ]
-    },
-    {
-      title: "Front-end Developer",
-      company: "Pareto Solutions (via Toptal)",
-      location: "Osijek (remote)",
-      period: "NOVEMBER 2015 — JANUARY 2016",
-      type: "freelance",
-      responsibilities: [
-        "Built HTML architecture using BEM methodology",
-        "Implemented custom forms using Stripe",
-        "Implemented custom JavaScript step-by-step validation",
-        "Implemented modal functionality for user exit intent",
-        "Daily Git workflow"
-      ],
-      technologies: [
-        "HTML", "CSS", "JavaScript", "jQuery", "BEM", "Stripe"
-      ]
-    },
-    {
-      title: "Front-end Developer/Designer",
-      company: "Innovative Operations (via Toptal)",
-      location: "Osijek (remote)",
-      period: "JANUARY 2016 — FEBRUARY 2016",
-      type: "freelance",
-      responsibilities: [
-        "Created visual solutions for dashboard and website",
-        "Created HTML architecture using BEM methodology",
-        "Implemented responsive design solutions",
-        "Created custom font icons using Sketch",
-        "Served as UI/UX advisor",
-        "Implemented responsive images solution"
-      ],
-      technologies: [
-        "HTML", "CSS", "JavaScript", "Sass", "Node.js",
-        "Ruby on Rails", "BEM", "Sketch"
-      ]
-    },
-    {
-      title: "Front-end Developer",
-      company: "Copyop (via Toptal)",
-      location: "Osijek (remote)",
-      period: "MARCH 2016 — APRIL 2016",
-      type: "freelance",
-      responsibilities: [
-        "Worked intensively with HighCharts API",
-        "Developed animated stock market trading simulation",
-        "Created HighCharts and CSS logic for win/loss ratios",
-        "Implemented client-side validation using Parsley.js",
-        "Created configurable calculation system"
-      ],
-      technologies: [
-        "JavaScript", "jQuery", "PHP", "HTML5", "CSS3",
-        "HighCharts API", "Parsley.js"
-      ]
-    },
-    {
-      title: "Front-end Developer",
-      company: "Pavlovspig (via Toptal)",
-      location: "Osijek (remote)",
-      period: "JUNE 2016 — JULY 2016",
-      type: "freelance",
-      responsibilities: [
-        "Built JavaScript architecture for API communication",
-        "Created custom page navigation and interaction features",
-        "Implemented Highcharts with large dataset handling",
-        "Created front-end session management system",
-        "Integrated and customized dashboard theme"
-      ],
-      technologies: [
-        "PHP", "HTML5", "JavaScript", "jQuery", "CSS3", "Highcharts"
+        "React", "Angular", "WordPress", "Drupal", "PHP", "HighCharts", "Ruby on Rails", "Stripe Integration"
       ]
     }
   ];
 
-  const fullTimePositions = employmentHistory.filter(job => job.type === 'fulltime');
-  const freelanceProjects = employmentHistory.filter(job => job.type === 'freelance');
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-12 pt-16">
-      <motion.div 
-        className="max-w-4xl mx-auto p-8"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
+    <div className="min-h-screen bg-gray-50 dark:bg-dark-bg py-20 relative overflow-hidden transition-colors duration-300">
+      {/* Background decoration */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+        <div className="absolute top-1/4 -right-64 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 -left-64 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
+      </div>
+
+      <div className="max-w-5xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Professional Experience</h1>
-          <p className="text-xl text-gray-600">Building the modern web since 2011</p>
+          <div className="inline-flex items-center justify-center p-3 bg-blue-100 dark:bg-blue-900/30 rounded-xl mb-4">
+             <BriefcaseIcon className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+          </div>
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Professional Experience</h2>
+          <p className="text-xl text-gray-600 dark:text-gray-400">Building the modern web since 2011</p>
         </motion.div>
 
-        <motion.div variants={container} initial="hidden" animate="show">
-          {/* Full-time Positions */}
-          <div className="mb-16">
-            <div className="flex items-center gap-3 mb-8">
-              <BriefcaseIcon className="w-8 h-8 text-blue-600" />
-              <h2 className="text-3xl font-semibold text-gray-800">Full-time Positions</h2>
-            </div>
-            <div className="space-y-8">
-              {fullTimePositions.map((job) => (
-                <ProjectCard key={`${job.company}-${job.period}`} job={job} />
-              ))}
-            </div>
-          </div>
+        <div className="relative">
+          {/* Timeline Line */}
+          <div className="absolute left-0 md:left-1/2 h-full w-px bg-gray-200 dark:bg-gray-800 transform md:-translate-x-1/2" />
 
-          {/* Freelance Projects */}
-          <div>
-            <div className="flex items-center gap-3 mb-8">
-              <UserGroupIcon className="w-8 h-8 text-blue-600" />
-              <h2 className="text-3xl font-semibold text-gray-800">Freelance Projects</h2>
-            </div>
-            <div className="space-y-8">
-              {freelanceProjects.map((job) => (
-                <ProjectCard key={`${job.company}-${job.period}`} job={job} />
-              ))}
-            </div>
+          <div className="space-y-12">
+            {employmentHistory.map((job, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ delay: index * 0.1 }}
+                className={`relative flex flex-col md:flex-row gap-8 ${
+                  index % 2 === 0 ? 'md:flex-row-reverse' : ''
+                }`}
+              >
+                {/* Timeline Dot */}
+                <div className="absolute left-[-5px] md:left-1/2 top-0 w-3 h-3 bg-blue-600 rounded-full border-4 border-white dark:border-dark-bg transform md:-translate-x-1/2 z-10 shadow-sm" />
+
+                {/* Content */}
+                <div className="flex-1 ml-6 md:ml-0">
+                  <div className={`glass-card p-6 md:p-8 rounded-2xl hover:shadow-xl transition-shadow ${
+                    index % 2 === 0 ? 'md:text-left' : 'md:text-right'
+                  }`}>
+                    <div className={`flex flex-col gap-2 mb-4 ${
+                      index % 2 === 0 ? 'md:items-start' : 'md:items-end'
+                    }`}>
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white">{job.title}</h3>
+                      <div className="text-blue-600 dark:text-blue-400 font-semibold text-lg">{job.company}</div>
+
+                      <div className="flex flex-wrap gap-4 text-sm text-gray-500 dark:text-gray-400 mt-1">
+                        <span className="flex items-center gap-1">
+                          <CalendarIcon className="w-4 h-4" />
+                          {job.period}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <MapPinIcon className="w-4 h-4" />
+                          {job.location}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="space-y-4">
+                      <ul className={`space-y-2 text-gray-600 dark:text-gray-300 text-sm leading-relaxed ${
+                         index % 2 === 0 ? 'md:text-left' : 'md:text-right'
+                      }`}>
+                        {job.responsibilities.slice(0, 4).map((resp, i) => (
+                          <li key={i}>{resp}</li>
+                        ))}
+                      </ul>
+
+                      {job.technologies && (
+                        <div className={`flex flex-wrap gap-2 mt-4 ${
+                           index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'
+                        }`}>
+                          {job.technologies.slice(0, 6).map((tech) => (
+                            <span
+                              key={tech}
+                              className="px-2 py-1 bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-gray-300 text-xs rounded-md border border-gray-200 dark:border-white/10"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                          {job.technologies.length > 6 && (
+                            <span className="px-2 py-1 text-xs text-gray-400">+{job.technologies.length - 6} more</span>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Empty space for the other side */}
+                <div className="flex-1 hidden md:block" />
+              </motion.div>
+            ))}
           </div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </div>
   );
 }
