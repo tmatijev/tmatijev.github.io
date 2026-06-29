@@ -1,4 +1,5 @@
 import { lazy, Suspense } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { Navigation } from './components/Navigation';
 
 // Lazy load all sections
@@ -139,6 +140,8 @@ function App() {
           <Contact />
         </Suspense>
       </section>
+      
+      <Analytics />
     </div>
   );
 }
