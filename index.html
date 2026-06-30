@@ -1,39 +1,77 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tomislav Matijević | Principal Frontend Engineer</title>
-    
+    <meta name="theme-color" content="#06070b" />
+    <title>Tomislav Matijević — Principal Frontend & AI Engineer</title>
+
     <!-- Primary Meta Tags -->
-    <meta name="title" content="Tomislav Matijević | Principal Frontend Engineer" />
-    <meta name="description" content="Principal Frontend Engineer with 10+ years of experience in React, Remix, and NextJS. Specializing in modern web development and team leadership." />
-    <meta name="keywords" content="Frontend Engineer, React Developer, Web Development, UI/UX, JavaScript, TypeScript, NextJS, Remix" />
+    <meta name="title" content="Tomislav Matijević — Principal Frontend & AI Engineer" />
+    <meta
+      name="description"
+      content="Principal Frontend Engineer and AI-native developer. I architect AI-powered web experiences with React, TypeScript, GraphQL, Remix and Next.js — then make them production-ready."
+    />
+    <meta
+      name="keywords"
+      content="Principal Frontend Engineer, AI Engineer, AI developer, React, TypeScript, GraphQL, Next.js, Remix, Claude, Cursor, web performance, frontend architecture, Osijek, Croatia"
+    />
     <meta name="author" content="Tomislav Matijević" />
 
-   <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3EM8SNBMHG"></script>
+    <!-- Prevent theme flash: apply stored/system theme before first paint -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (!t) {
+            t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+          }
+          document.documentElement.classList.remove('light', 'dark');
+          document.documentElement.classList.add(t);
+        } catch (e) {}
+      })();
+    </script>
+
+    <!-- Google Analytics — deferred to idle so it never competes with first paint -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-3EM8SNBMHG');
+      (function () {
+        function load() {
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-3EM8SNBMHG';
+          document.head.appendChild(s);
+        }
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(load, { timeout: 5000 });
+        } else {
+          window.addEventListener('load', function () { setTimeout(load, 1500); });
+        }
+      })();
     </script>
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://tmatijev.github.io/" />
-    <meta property="og:title" content="Tomislav Matijević | Principal Frontend Engineer" />
-    <meta property="og:description" content="Principal Frontend Engineer with 10+ years of experience in React, Remix, and NextJS. Specializing in modern web development and team leadership." />
+    <meta property="og:title" content="Tomislav Matijević — Principal Frontend & AI Engineer" />
+    <meta
+      property="og:description"
+      content="I architect AI-powered web experiences that feel impossible — then make them production-ready. React, TypeScript, GraphQL, Remix, Next.js."
+    />
     <meta property="og:image" content="https://tmatijev.github.io/images/avatar.jpeg" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://tmatijev.github.io/" />
-    <meta property="twitter:title" content="Tomislav Matijević | Principal Frontend Engineer" />
-    <meta property="twitter:description" content="Principal Frontend Engineer with 10+ years of experience in React, Remix, and NextJS. Specializing in modern web development and team leadership." />
+    <meta property="twitter:title" content="Tomislav Matijević — Principal Frontend & AI Engineer" />
+    <meta
+      property="twitter:description"
+      content="I architect AI-powered web experiences that feel impossible — then make them production-ready. React, TypeScript, GraphQL, Remix, Next.js."
+    />
     <meta property="twitter:image" content="https://tmatijev.github.io/images/avatar.jpeg" />
 
     <!-- Structured Data -->
@@ -42,26 +80,35 @@
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Tomislav Matijević",
-        "jobTitle": "Principal Frontend Engineer",
+        "jobTitle": "Principal Frontend Engineer & AI Engineer",
         "url": "https://tmatijev.github.io/",
         "image": "https://tmatijev.github.io/images/avatar.jpeg",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Osijek",
+          "addressCountry": "Croatia"
+        },
         "sameAs": [
           "https://github.com/tmatijev",
-          "https://linkedin.com/in/tmatijev"
+          "https://linkedin.com/in/tmatijev",
+          "https://undefined.hr"
         ],
         "worksFor": {
           "@type": "Organization",
-          "name": "Independent Contractor"
+          "name": "Undefined",
+          "url": "https://undefined.hr"
         },
         "knowsAbout": [
           "React",
           "TypeScript",
-          "NextJS",
+          "GraphQL",
+          "Next.js",
           "Remix",
-          "Frontend Development",
-          "UI/UX Design",
+          "AI Engineering",
+          "Large Language Models",
+          "Frontend Architecture",
           "Web Performance",
-          "Team Leadership"
+          "Technical Leadership"
         ]
       }
     </script>
@@ -70,30 +117,39 @@
     <script type="text/javascript">
       (function(l) {
         if (l.search[1] === '/' ) {
-          var decoded = l.search.slice(1).split('&').map(function(s) { 
+          var decoded = l.search.slice(1).split('&').map(function(s) {
             return s.replace(/~and~/g, '&')
           }).join('?');
           window.history.replaceState(null, null,
               l.pathname.slice(0, -1) + decoded + l.hash
           );
-          // Prevent automatic scrolling
           window.scrollTo(0, 0);
         }
       }(window.location))
     </script>
 
-    <!-- Preload critical assets -->
-    <link rel="preload" href="./images/avatar.jpeg" as="image" />
-    <link rel="preload" href="data:application/octet-stream;base64,aW1wb3J0IHsgU3RyaWN0TW9kZSB9IGZyb20gJ3JlYWN0JwppbXBvcnQgeyBjcmVhdGVSb290IH0gZnJvbSAncmVhY3QtZG9tL2NsaWVudCcKaW1wb3J0ICcuL2luZGV4LmNzcycKaW1wb3J0IEFwcCBmcm9tICcuL0FwcC50c3gnCmltcG9ydCB7IFRoZW1lUHJvdmlkZXIgfSBmcm9tICcuL2NvbnRleHQvVGhlbWVDb250ZXh0JwoKY3JlYXRlUm9vdChkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgncm9vdCcpISkucmVuZGVyKAogIDxTdHJpY3RNb2RlPgogICAgPFRoZW1lUHJvdmlkZXI+CiAgICAgIDxBcHAgLz4KICAgIDwvVGhlbWVQcm92aWRlcj4KICA8L1N0cmljdE1vZGU+LAopCg==" as="script" type="module" />
-    
-    <!-- Preconnect to external domains -->
+    <!-- Web app manifest -->
+    <link rel="manifest" href="./manifest.json" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="./assets/index-Bp6fhnUP.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/vendor-DvPXg6_U.js">
-    <link rel="modulepreload" crossorigin href="./assets/home-Dj0fL00i.js">
-    <link rel="stylesheet" crossorigin href="./assets/index-DNceO2E1.css">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      />
+    </noscript>
+    <script type="module" crossorigin src="./assets/index-D9CwSDBc.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/react-vendor-8cbVar3e.js">
+    <link rel="modulepreload" crossorigin href="./assets/motion-vendor-B0fHeX0Q.js">
+    <link rel="stylesheet" crossorigin href="./assets/index-eTR7QRUV.css">
   </head>
   <body>
     <div id="root"></div>
