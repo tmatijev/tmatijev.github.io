@@ -1,34 +1,42 @@
 import { useState, useEffect } from 'react';
+import { navItems } from '../lib/content';
 
+const SECTION_IDS = navItems.map((n) => n.id);
+
+/**
+ * Tracks the section currently in view. rAF-throttled, and only updates state
+ * when the active section actually changes — so consumers re-render at most
+ * once per section crossing, not once per scroll frame.
+ */
 export function useScrollPosition() {
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState(SECTION_IDS[0] ?? 'home');
 
   useEffect(() => {
-    const handleScroll = () => {
-      // Calculate scroll progress percentage
-      const winScroll = document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = (winScroll / height) * 100;
-      setScrollProgress(scrolled);
+    let ticking = false;
 
-      // Find the current section
-      const sections = ['home', 'portfolio', 'what-can-i-do', 'projects', 'contact'];
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            setActiveSection(section);
-            break;
-          }
+    const compute = () => {
+      ticking = false;
+      for (const id of SECTION_IDS) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= 120 && rect.bottom >= 120) {
+          setActiveSection((prev) => (prev === id ? prev : id));
+          break;
         }
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(compute);
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    compute();
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  return { scrollProgress, activeSection };
-} 
+  return { activeSection };
+}
