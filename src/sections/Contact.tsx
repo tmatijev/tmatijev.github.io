@@ -161,7 +161,7 @@ export default function Contact() {
                 <ArrowRightIcon aria-hidden="true" className="h-4 w-4" />
               </MagneticButton>
 
-              <p className="mt-4 text-center text-xs text-gray-500 dark:text-gray-500">
+              <p className="mt-4 text-xs text-gray-500 dark:text-gray-500">
                 {identity.location} · Working remotely worldwide
               </p>
             </div>
