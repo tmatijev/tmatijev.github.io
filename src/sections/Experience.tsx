@@ -66,13 +66,14 @@ export default function Experience() {
                 variants={fadeUp}
                 className="relative pl-12 md:grid md:grid-cols-2 md:items-start md:gap-x-14 md:pl-0"
               >
-                {/* Timeline dot on the spine */}
-                <motion.span
-                  variants={scaleIn}
+                {/* Timeline dot on the spine. Centering (translateX) lives on this
+                    plain span; the scale animation lives on the inner motion.span so
+                    Framer's inline transform can't override the centering. */}
+                <span
                   aria-hidden="true"
                   className="absolute left-4 top-7 -translate-x-1/2 md:left-1/2"
                 >
-                  <span className="relative grid h-4 w-4 place-items-center">
+                  <motion.span variants={scaleIn} className="relative grid h-4 w-4 place-items-center">
                     {job.current && (
                       <span className="absolute inset-0 animate-ping rounded-full bg-accent-cyan/50" />
                     )}
@@ -83,8 +84,8 @@ export default function Experience() {
                           : 'relative h-3 w-3 rounded-full bg-gradient-to-br from-accent-blue to-accent-violet ring-4 ring-ink-950/60 dark:ring-ink-950'
                       }
                     />
-                  </span>
-                </motion.span>
+                  </motion.span>
+                </span>
 
                 <div className={columnClass}>
                   <article className={cardClass}>
