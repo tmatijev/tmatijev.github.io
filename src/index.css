@@ -5,48 +5,124 @@
 @layer base {
   html {
     @apply scroll-smooth;
+    scroll-padding-top: 6rem;
   }
 
   body {
-    @apply font-sans antialiased text-gray-900 bg-white dark:bg-dark-bg dark:text-gray-100 transition-colors duration-300;
+    @apply font-sans antialiased text-gray-900 bg-white dark:bg-ink-950 dark:text-gray-100;
+    transition: background-color 0.4s ease, color 0.4s ease;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display;
+    @apply font-display tracking-tight;
+  }
+
+  /* Visible, on-brand focus for keyboard users */
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent-cyan ring-offset-2 ring-offset-white dark:ring-offset-ink-950 rounded-md;
+  }
+
+  ::selection {
+    @apply bg-accent-cyan/30 text-gray-900 dark:text-white;
   }
 }
 
 @layer components {
-  .glass {
-    @apply bg-white/70 backdrop-blur-lg border border-white/20 dark:bg-dark-card/70 dark:border-white/10;
+  /* Glass / panel surfaces */
+  .panel {
+    @apply bg-white/80 dark:bg-white/[0.035] backdrop-blur-xl
+           border border-gray-200/80 dark:border-white/10
+           rounded-2xl shadow-lg dark:shadow-panel;
   }
 
-  .glass-card {
-    @apply bg-white/80 backdrop-blur-sm border border-gray-100 shadow-lg dark:bg-dark-card/80 dark:border-dark-border dark:shadow-none;
+  .panel-interactive {
+    @apply panel transition-all duration-300
+           hover:border-accent-cyan/40 dark:hover:border-accent-cyan/30
+           hover:shadow-glow;
   }
 
+  /* Mono micro-labels, e.g. // ai_edge */
+  .mono-label {
+    @apply font-mono text-xs uppercase tracking-[0.25em]
+           text-cyan-700 dark:text-accent-cyan/80;
+  }
+
+  /* Gradient signature text */
+  .text-gradient {
+    @apply text-transparent bg-clip-text
+           bg-gradient-to-r from-accent-blue via-accent-cyan to-accent-violet;
+  }
+
+  /* Buttons */
   .btn-primary {
-    @apply bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors shadow-lg hover:shadow-blue-500/25 dark:shadow-blue-900/20;
+    @apply relative inline-flex items-center justify-center gap-2
+           px-6 py-3 rounded-full font-semibold text-white
+           bg-gradient-to-r from-accent-blue to-accent-violet
+           shadow-lg shadow-accent-blue/20
+           transition-all duration-300 hover:shadow-glow-violet
+           focus-visible:ring-2 focus-visible:ring-accent-cyan;
   }
 
-  .btn-secondary {
-    @apply bg-white text-gray-900 px-6 py-3 rounded-full font-semibold border border-gray-200 hover:bg-gray-50 transition-colors dark:bg-dark-card dark:text-white dark:border-dark-border dark:hover:bg-white/5;
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2
+           px-6 py-3 rounded-full font-semibold
+           text-gray-900 dark:text-white
+           bg-white/60 dark:bg-white/[0.04]
+           border border-gray-200 dark:border-white/10
+           backdrop-blur-md transition-all duration-300
+           hover:border-accent-cyan/50 hover:text-accent-blue dark:hover:text-accent-cyan;
+  }
+
+  /* Pill / chip */
+  .chip {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full
+           text-xs font-medium
+           bg-gray-100 dark:bg-white/[0.06]
+           text-gray-600 dark:text-gray-300
+           border border-gray-200/80 dark:border-white/10
+           transition-colors duration-200;
+  }
+
+  .section-shell {
+    @apply relative overflow-hidden py-24 md:py-32;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+
+  /* Animated gradient mesh helper */
+  .bg-mesh {
+    @apply bg-mesh-light dark:bg-mesh-dark;
+  }
+
+  /* Subtle film grain — pure CSS, no image request */
+  .noise::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 }
 
 /* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-transparent;
-}
-
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-300 rounded-full dark:bg-gray-700;
+  @apply bg-gray-300 dark:bg-ink-700 rounded-full;
 }
+::-webkit-scrollbar-thumb:hover { @apply bg-gray-400 dark:bg-ink-border; }
 
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-400 dark:bg-gray-600;
+/* Respect reduced-motion globally: neutralize CSS animations & smooth scroll */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -8,14 +8,10 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          'vendor': ['react', 'react-dom', 'framer-motion'],
-          'home': ['./src/sections/Home.tsx'],
-          'portfolio': ['./src/sections/Portfolio.tsx'],
-          'services': ['./src/sections/WhatCanIDo.tsx'],
-          'projects': ['./src/sections/Projects.tsx'],
-          'contact': ['./src/sections/Contact.tsx']
-        }
-      }
+          'react-vendor': ['react', 'react-dom'],
+          'motion-vendor': ['framer-motion'],
+        },
+      },
     },
     chunkSizeWarningLimit: 1000,
     cssCodeSplit: true,

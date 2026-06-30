@@ -1,4 +1,5 @@
-import { Component, ErrorInfo, ReactNode } from 'react';
+import { Component } from 'react';
+import type { ErrorInfo, ReactNode } from 'react';
 
 interface Props {
   children: ReactNode;
@@ -9,30 +10,31 @@ interface State {
 }
 
 export class ErrorBoundary extends Component<Props, State> {
-  public state: State = {
-    hasError: false
-  };
+  public state: State = { hasError: false };
 
   public static getDerivedStateFromError(): State {
     return { hasError: true };
   }
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    // Surfaced in dev; stripped from production build by terser.
     console.error('Uncaught error:', error, errorInfo);
   }
 
   public render() {
     if (this.state.hasError) {
       return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="flex min-h-screen items-center justify-center bg-white px-6 dark:bg-ink-950">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Oops!</h1>
-            <p className="text-gray-600 mb-8">Something went wrong. Please refresh the page.</p>
-            <button
-              onClick={() => window.location.reload()}
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              Refresh Page
+            <p className="mono-label mb-4">// runtime_error</p>
+            <h1 className="mb-4 text-4xl font-bold text-gray-900 dark:text-white">
+              Something broke.
+            </h1>
+            <p className="mb-8 text-gray-600 dark:text-gray-400">
+              An unexpected error occurred. A refresh usually sorts it out.
+            </p>
+            <button onClick={() => window.location.reload()} className="btn-primary">
+              Refresh page
             </button>
           </div>
         </div>
@@ -41,4 +43,4 @@ export class ErrorBoundary extends Component<Props, State> {
 
     return this.props.children;
   }
-} 
+}

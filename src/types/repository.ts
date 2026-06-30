@@ -7,4 +7,4 @@ export interface Repository {
   stargazers_count: number;
   topics: string[];
   pushed_at: string;
-} 
+}
