@@ -4,8 +4,9 @@ import { RepositoryCard } from '../components/Repository';
 import { SectionHeader } from '../components/SectionHeader';
 import { MagneticButton } from '../components/MagneticButton';
 import { AnimatedGrid } from '../components/AnimatedGrid';
+import { LiveProductCard } from '../components/LiveProductCard';
 import { getRepositories, fallbackRepositories } from '../models/github';
-import { links } from '../lib/content';
+import { links, liveProducts } from '../lib/content';
 import { fadeUp, stagger, viewportOnce } from '../lib/motion';
 import type { Repository } from '../types/repository';
 
@@ -73,14 +74,40 @@ export default function Projects() {
 
       <div className="relative mx-auto max-w-7xl px-6">
         <SectionHeader
-          kicker="projects"
+          kicker="live products"
           title={
             <>
-              Open Source <span className="text-gradient">&amp; Projects</span>
+              Shipped <span className="text-gradient">&amp; Running</span>
             </>
           }
-          description="A live look at what I'm building in public — extensions, tools, and experiments, pulled straight from GitHub and sorted by most recent."
+          description="Real products in production — SaaS platforms, web apps, and web readers I've designed and built under Undefined. Every one is live; click through to try it."
         />
+
+        <motion.div
+          variants={stagger(0.08)}
+          initial="hidden"
+          whileInView="show"
+          viewport={viewportOnce}
+          className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
+        >
+          {liveProducts.map((product) => (
+            <motion.div key={product.slug} variants={fadeUp}>
+              <LiveProductCard product={product} />
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <div className="mt-24 border-t border-gray-200/70 pt-24 dark:border-white/10">
+          <SectionHeader
+            kicker="open source"
+            title={
+              <>
+                Building <span className="text-gradient">in Public</span>
+              </>
+            }
+            description="A live look at what I'm building in the open — extensions, tools, and experiments, pulled straight from GitHub and sorted by most recent."
+          />
+        </div>
 
         {usedFallback && (
           <p className="mt-6 text-center font-mono text-xs tracking-wider text-gray-400 dark:text-gray-500">

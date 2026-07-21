@@ -330,6 +330,112 @@ export type FeaturedProject = {
   url: string;
 };
 
+// ── Live products (shipped, running in production) ───────────────────────────
+// Real products built under Undefined. Screenshots live in /public/projects.
+export type LiveProduct = {
+  slug: string;
+  name: string;
+  tagline: string;
+  url: string;
+  image: string;
+  tech: string[];
+  accent: string;
+  accent2: string;
+};
+
+export const liveProducts: LiveProduct[] = [
+  {
+    slug: 'birthday-disco',
+    name: 'Birthday Disco',
+    tagline: 'A birthday countdown that turns into a party',
+    url: 'https://birthdaydisco.com/',
+    image: '/projects/birthdaydisco.jpg',
+    tech: ['Vite', 'React', 'Canvas'],
+    accent: '#e879f9',
+    accent2: '#22d3ee',
+  },
+  {
+    slug: 'tokenpoker',
+    name: 'TokenPoker',
+    tagline: 'Planning poker for AI costs',
+    url: 'https://www.tokenpoker.app/',
+    image: '/projects/tokenpoker.png',
+    tech: ['Next.js', 'Vercel', 'Realtime'],
+    accent: '#22d3ee',
+    accent2: '#6366f1',
+  },
+  {
+    slug: 'tenis-hr',
+    name: 'Tenis.hr',
+    tagline: 'A platform for modern tennis clubs',
+    url: 'https://tenis.hr',
+    image: '/projects/tenis.png',
+    tech: ['Next.js', 'React', 'Vercel'],
+    accent: '#a3e635',
+    accent2: '#22c55e',
+  },
+  {
+    slug: 'treneri-tenis',
+    name: 'Treneri.tenis.hr',
+    tagline: 'Find a tennis coach in Croatia',
+    url: 'https://treneri.tenis.hr/',
+    image: '/projects/treneri-tenis.jpg',
+    tech: ['Next.js', 'React', 'Maps'],
+    accent: '#bef264',
+    accent2: '#22d3ee',
+  },
+  {
+    slug: 'croatia-for-kids',
+    name: 'Croatia for Kids',
+    tagline: 'Croatia through colorful bilingual books',
+    url: 'https://www.croatiaforkids.com/',
+    image: '/projects/croatiaforkids.png',
+    tech: ['Next.js', 'Tailwind', 'PWA'],
+    accent: '#f472b6',
+    accent2: '#f59e0b',
+  },
+  {
+    slug: 'church-media-studio',
+    name: 'Church Media Studio',
+    tagline: 'Professional media content for churches',
+    url: 'https://www.churchmediastudio.com/',
+    image: '/projects/churchmediastudio.jpg',
+    tech: ['Next.js', 'React'],
+    accent: '#818cf8',
+    accent2: '#c084fc',
+  },
+  {
+    slug: 'northvale-records',
+    name: 'Northvale Records',
+    tagline: 'More than sound. More than genre.',
+    url: 'https://www.northvale-records.com/',
+    image: '/projects/northvale.png',
+    tech: ['Next.js', 'React', 'Tailwind'],
+    accent: '#34d399',
+    accent2: '#a855f7',
+  },
+  {
+    slug: 'mucanje',
+    name: 'Mucanje.com',
+    tagline: "Croatia's first portal on stuttering",
+    url: 'https://mucanje.com',
+    image: '/projects/mucanje.png',
+    tech: ['Remix', 'React'],
+    accent: '#2dd4bf',
+    accent2: '#38bdf8',
+  },
+  {
+    slug: 'stuttering-book',
+    name: 'Stuttering — Positive Thinking',
+    tagline: 'A free online book on overcoming stuttering',
+    url: 'https://stutteringbook.com',
+    image: '/projects/stutteringbook.png',
+    tech: ['Next.js', 'Web Reader'],
+    accent: '#facc15',
+    accent2: '#eab308',
+  },
+];
+
 export const featuredProjects: FeaturedProject[] = [
   {
     name: 'release-radar',
