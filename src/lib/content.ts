@@ -345,6 +345,16 @@ export type LiveProduct = {
 
 export const liveProducts: LiveProduct[] = [
   {
+    slug: 'nestanak-struje',
+    name: 'Nestanak struje',
+    tagline: 'Power outage alerts for your address, a day ahead',
+    url: 'https://nestanakstruje.com',
+    image: '/projects/nestanakstruje.jpg',
+    tech: ['Next.js', 'Vercel', 'Telegram'],
+    accent: '#fbbf24',
+    accent2: '#f97316',
+  },
+  {
     slug: 'birthday-disco',
     name: 'Birthday Disco',
     tagline: 'A birthday countdown that turns into a party',
